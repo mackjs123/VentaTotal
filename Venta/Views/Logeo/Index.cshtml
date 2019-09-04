@@ -1,0 +1,77 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+	<style>
+		body {
+			/*background-image: url(../../Content/Template1/img/voto_electoral.jpg);*/
+			background-position: 50% 0px;
+			width: 100%;
+			height: 100%;
+			margin: 0 auto;
+			background-size: cover;
+			background-attachment: fixed;
+			background-repeat: repeat-y;
+		}
+	</style>
+
+</head>
+<body>
+	<center>
+		<div class="container" id="CuerpoCentral">
+			<div class="row">
+				<div class="col-md-7 center" id="Logo">
+					<div class="card">
+						<div class="card-group" id="CuerpoInterno">
+							@*<section>*@
+							<!--<form asp-controller="Logeo" action="RegistroLogin" method="post">-->
+							<center>
+								<h4 class="title"><strong> Iniciar Sesión</strong></h4>
+							</center>
+							<br />
+							<form action="@Url.Action("InicioSesion")" method="post" id="idRegistro" autocomplete="off">
+								<div class="form-group text-center">
+									<label for="name" class="NombreTexto">Nombre Usuario</label>
+									<input class="form-control" type="text" name="sNombreUsuario" id="txtNombreUsuario" placeholder="Ingrese Nombre Usuario" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+								</div>
+
+								<div class="form-group text-center">
+									<label for="name" class="NombreTexto">Contraseña</label>
+									<input class="form-control" type="password" name="sContraseña" id="txtContraseña" placeholder="Ingrese Contraseña" />
+								</div>
+
+								@if (TempData["ErrorMessage"] != null)
+								{
+									<div class="form-group text-justify">
+										<label style="color:red;" class="MessageError">@TempData["ErrorMessage"].ToString()</label>
+									</div>
+								}
+								<br />
+								<div class="form-group">
+									<button type="submit" id="btnLogin" class="waves-effect waves-light btn">Iniciar Sesión</button>
+								</div>
+							</form>
+						</div>
+						<!--</section>-->
+						<!--<label id="indexMessage" class="Error">@*@Html.DisplayFor(u => u.ErrorMessage)*@</label>-->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</center>
+</body>
+@*<script src="~/Scripts/Accceso/Index.js"></script>*@
+</html>
+@section scripts
+{
+	@Scripts.Render("~/Scripts/Acceso/Index.js")
+}
+
+

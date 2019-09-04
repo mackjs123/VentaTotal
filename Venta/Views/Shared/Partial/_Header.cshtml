@@ -1,0 +1,42 @@
+﻿@*<div class="navbar navbar-inverse navbar-fixed-top">*@
+@*<body>*@
+	<header>
+		<nav class=" header navbar-fixed-top">
+			<div class="nav-wrapper cyan darken-2">
+				<a href="#!" class="brand-logo center">
+					Sistemas de Ventas y Fácturacion Electronica
+				</a>
+				@if (Session["NombreUsuario"] != null)
+				{
+					<div id="menuNavbar1">
+						<ul class="right hide-on-med-and-down">
+							<a href="@Url.Action("Close","Session")">Cerrar Sesion</a>
+						</ul>
+					</div>
+					@*<a href="#" data-target="sidenav">Menu <img src="~/Imagenes/lineas.png" /></a>*@
+
+				}
+			</div>
+		</nav>
+	</header>
+	
+@*</body>*@
+
+	@*<div class="navbar-collapse collapse">*@
+		@*<ul id="slide-out" class="sidenav">
+			<li>
+				<div class="user-view cyan darken-2">
+					<img id="foto1" class="circle responsive-img valign profile-image" src="~/Imagenes/Usuario.png" alt="Alternate Text" />
+					<div class="white-text" id="name1">@Session["NombreUsuario"]</div>
+				</div>
+			</li>
+			<li>
+				<a href="@Url.Action("Index","Principal")">Inicio</a>
+			</li>
+			<li>
+				<a href="@Url.Action("Close","Session")">Cerrar Sesion</a>
+			</li>
+		</ul>*@
+
+	@*</div>*@
+	@*</div>*@

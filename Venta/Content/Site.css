@@ -1,10 +1,16 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-}
+		/*font-family:'Comic Sans MS','Times New Roman'*/
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
+	}
+@font-face {
+	font-family: 'Roboto','Arial';
+	src: url('../Content/materialize/fonts/roboto/Roboto-Regular.ttf') format("truetype");
+	src: url('../Content/materialize/fonts/roboto/Roboto-Regular.eot');
+			}
+	/* Set padding to keep content from hitting the edges */
+	.body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -17,8 +23,329 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 360px;
+}*/
+
+
+.panel-body {
+	margin-top: 10px;
+	margin-left: 40px;
+	max-width: 45%;
+	border: 3px #d7d7d7 dashed;
+	border-radius: 5px;
+	padding: 10px;
 }
+
+
+@media(max-width: 1024px) {
+	.side-nav {
+		display: none;
+	}
+
+	
+}
+
+@media(min-width: 800px) {
+	.container {
+		max-width: 80%;
+		margin: 0;
+		padding: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	.side-nav {
+		max-width: 14%;
+		display: block;
+		position: absolute;
+		z-index: 1;
+	}
+
+	.container2 {
+		width: 95%;
+		margin: 50px 120px 0px;
+	}
+
+	.modal-content {
+		width: 100%;
+	
+	}
+	#frmMantenedor
+	{
+		/*font-size: 18px;*/
+		width: 100%;
+		border: none;
+	}
+	.header {
+		/*top: -45px;*/
+		height: 50px;
+		/*position: static;*/
+		margin: auto;
+	}
+	#operario {
+	margin-top: 50px;
+	}
+	.wrap {
+		width: 100%;
+		max-width: 700px;
+		padding: 40px;
+		margin: auto;
+		background: #fff;
+		box-shadow: 0px 0px 3px grey;
+	}
+	/*#operario {
+		position: absolute;
+		left: 40px;
+		height: 20px;
+		width: 20px;
+		top: 100px;
+		z-index: 1;
+	}*/
+
+	.form-group {
+		position: relative;
+		margin-bottom: 28px;
+	}
+
+	#sNombreUsuario, #sApellido, #sDireccion, #sTelefono, #sDni, #sContraseña, #dFechaNacimiento {
+		font-size: 16px;
+		width: 100%;
+		outline: none;
+		padding: 8px;
+		border: none;
+		border-bottom: 1px solid Highlight;
+	}
+
+	.error {
+		/*border-bottom: 1px solid red;*/
+		font-size: 12px;
+		color: red;
+		text-align: justify;
+		/*border-bottom-color: red;*/
+	}
+
+		.error:active {
+			/*border-bottom: 1px solid red;*/
+			font-size: 12px;
+			color: red;
+			text-align: justify;
+			/*border-bottom-color: red;*/
+		}
+
+	#sNombreUsuario:focus, #sApellido:focus, #sDireccion:focus, #sTelefono:focus, #sDni:focus, #sContraseña:focus, #dFechaNacimiento:focus {
+		outline: none;
+		border-bottom: 2px solid blue;
+	}
+
+	.sexo {
+		display: inline-block;
+		cursor: pointer;
+		color: steelblue;
+		position: relative;
+		padding: 5px 15px 5px 51px;
+		font-size: 12px;
+		border-radius: 3px;
+		-webkit-transition: all .3s ease;
+		-o-transition: all .3s ease;
+		transition: all .3s ease;
+	}
+
+		.sexo:hover {
+			background: #d7d7d7;
+			opacity: 1;
+		}
+
+		.sexo::before {
+			content: "";
+			display: inline-block;
+			width: 17px;
+			height: 17px;
+			position: absolute;
+			left: 15px;
+			border-radius: 50%;
+			background: none;
+			border: 1px solid Highlight;
+		}
+
+	.radioSexo {
+		display: none;
+	}
+
+		.radioSexo:checked + .sexo:before {
+			display: none;
+		}
+
+		.radioSexo:checked + .sexo {
+			padding: 5px 15px;
+			background-color: steelblue;
+			border-radius: 2px;
+			color: white;
+		}
+
+	#txtNombreUsuario, #txtContraseña {
+		/*margin-right: 20px;*/
+		padding: 1.8px;
+		/*text-align: center;*/
+		margin-left: 15%;
+		font-size: 16px;
+		background: none;
+		border: none;
+		border-bottom: 1px solid Highlight;
+		max-width: 280px;
+		/*margin-bottom: 20px;*/
+		/*color: Highlight;*/
+		/*font-family: 'Comic Sans MS','Times New Roman';*/
+	}
+
+		#txtNombreUsuario:focus, #txtContraseña:focus {
+			outline: none;
+			border-bottom: 1px solid Highlight;
+		}
+}
+
+/*nav {
+	float: right;
+}*/
+#CuerpoCentral {
+	
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: center;
+}
+
+
+.NombreTexto {
+	font-size: 18px;
+}
+
+.MessageError {
+	font-size: 11px;
+}
+
+#name1 {
+	font-size: 8px;
+}
+
+
+.sidenav {
+	top: 0;
+	margin: 0;
+	height: calc(100% + 60px);
+	background-color: #fff;
+	overflow-y: auto;
+	will-change: transform;
+}
+	/*.side-nav {
+	top: 0;
+	margin: 0;
+	height: calc(100% + 60px);
+	background: #fff none repeat scroll 0 0;
+	overflow-y: no-content;
+	will-change: transform;
+	/*border: none;
+}*/
+
+.btn-floating {
+	background: url(../Imagenes/lineas.png) no-repeat center;
+}
+
+/*.collection {
+	/*height: 10.8em;
+	/*border: none;
+	margin-left: 10px;
+}*/
+
+#idColeccion {
+	margin-left: 10px;
+}
+
+#idColeccion2 {
+	margin-left: 10px;
+}
+
+#idSubir {
+	margin-top: -5px;
+}
+
+.blue {
+	background-color: blue;
+}
+
+.green {
+	background-color: green;
+}
+
+
+#idRegistro {
+	margin: 0 auto;
+	text-align: center;
+	resize: none;
+	float: none;
+	display: inline;
+	height: 100px;
+
+}
+
+
+#Logo {
+	width: 90%;
+	max-width: 500px;
+	padding: 40px;
+	margin: auto;
+	/*position: center;*/
+	margin-left: 25%;
+	/*box-shadow: 0px 0px 3px;*/
+	/*height: 100%;*/
+}
+.card-group
+{
+	height: 100%;
+}
+#CuerpoInterno {
+	height: 100%;
+	padding: 1.5px;
+
+}
+.title{
+	margin-top: 20px;
+}
+.texto {
+	color: darkgray;
+	font-size: 12px;
+	position: absolute;
+	top: 16px;
+	left: 0;
+	line-height: 12px;
+	margin-left: 12px;
+	transition: all .3s ease;
+}
+.texto:active
+{
+	top: -12px;
+	font-size: 10px;
+	line-height: 10px;
+	color: darkblue;
+
+}
+.texto1 {
+	color: darkgray;
+	font-size: 12px;
+	position: absolute;
+	top: -10px;
+
+}
+
+/*.card{
+	width: 60%;
+	max-width: 400px;
+	padding: 40px;
+	margin:auto
+}*/
+/*input[type="radio"] {
+	display: inline-block;
+}*/

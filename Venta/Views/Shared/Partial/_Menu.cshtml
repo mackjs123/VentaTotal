@@ -1,0 +1,40 @@
+﻿
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+			<script>
+				$(document).ready(function () {
+					$("#idColeccion").click(function () {
+						$("#contenido").load('/Principal/Index');
+
+						$("#idColeccion2").click(function () {
+							$("#contenido").load('/Usuario/Index');
+						})
+					})
+					//  $("#idColeccion2").load('/Usuario/Index.cshtml')
+				});
+		</script>
+</head>
+
+<body>
+
+	<div class="collection" id="idColorDiv">
+		<a href="@Url.Content("~/Principal/Index")" id="idColeccion" class="collection-item">
+			Inicio
+		</a>
+		@*@Url.Content("~/Usuario/Index")*@
+		<a href="@Url.Content("~/Usuario/Index")" id="idColeccion2" class="collection-item">
+		Usuario
+		</a>
+	</div>
+	<div id="contenido">
+
+	</div>
+
+
+
+</body>
+@*@section script{
+	@Scripts.Render("~/Scripts/js/Principal.js")
+	}*@
+
+

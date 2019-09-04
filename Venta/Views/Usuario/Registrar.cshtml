@@ -1,0 +1,213 @@
+﻿
+@{
+	ViewBag.Title = "Registrar";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container2">
+
+	<div class="modal-content">
+		@*<center>*@
+		<section class="content-header">
+			<h4 style="text-align:center">Registrar Usuarios</h4>
+		</section>
+		@*</center>*@
+		<section class="content" id="idSeccion">
+			<div class="row">
+				@*<div class="col-md-11">*@
+				<div class="box box-primary">
+					<div class="wrap">
+						<form id="frmMantenedor" class="" action="javascript:void(0)" autocomplete="off">
+							@*<div class="modal-body">*@
+							@*<input type="hidden" class="form-control" name="IdElector" id="txtIdElector" value="0" />*@
+							<div class=" box-body">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label for="name" class="texto">Nombre</label>
+											<input class="form-control" type="text" name="sNombreUsuario" id="sNombreUsuario" placeholder="" />
+										</div>
+									</div>
+								</div>
+								<div class=" row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label for="name" class="texto">Apellido</label>
+											<input class="form-control" type="text" name="sApellido" id="sApellido" placeholder="" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label for="name" class="texto">Direccion</label>
+											<input class="form-control" type="text" name="sDireccion" id="sDireccion" placeholder="" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="name" class="texto">Telefono</label>
+											<input class="form-control" type="text" name="sTelefono" id="sTelefono" placeholder="" />
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="name" class="texto">DNI</label>
+											<input class="form-control" type="text" name="sDni" id="sDni" placeholder="" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="name" class="texto">Contraseña</label>
+											<input class="form-control" type="password" name="sContraseña" id="sContraseña" placeholder="" />
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="name" class="texto1">Fecha Nacimiento</label>
+											<input type="date" name="dFechaNacimiento" id="dFechaNacimiento" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-10">
+										<div class="form-group">
+
+											@*<input type="radio" class="form-control" name="Masculino" value="Masculino"  checked/>*@
+											<input type="radio" name="sPerfil" value="1" id="cbxAdministrador" /><label for="cbxAdministrador" class="">ADMINISTRADOR</label>
+
+											@*<input type="radio" class="form-control" name="Masculino" value="Femenino" />*@
+											<input type="radio" name="sPerfil" value="2" id="cbxInvitado" /><label for="cbxInvitado" class="">INVITADO</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							@*@if (TempData["ErrorMessage"] != null)
+							{
+								<div class="form-group text-justify">
+									<label style="color:red;" class="MessageError">@TempData["ErrorMessage"].ToString()</label>
+								</div>
+							}
+								<br />*@
+							@*</div>*@
+							
+							<div class="modal-footer">
+								<button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+								<button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+
+							</div>
+
+
+
+						</form>
+					</div>
+			
+
+				</div>
+				@*</div>*@
+			</div>
+		</section>
+	</div>
+
+</div>
+
+
+@section scripts
+	{
+		@Scripts.Render("~/Scripts/Usuario/Index.js")
+
+	}
+
+
+@*<script>*@
+@*//$(function ()
+	//{
+	//		$("#frmMantenedor").click({
+	//			rules: {
+	//				sNombreUsuario: {
+	//					required: true,
+	//					minlength: 2
+	//				},
+	//				sApellido: {
+	//					required: true,
+	//					minlength: 2
+	//				}
+	//			}
+	//		})
+
+	//})*@
+@*'use strict';
+	var frmIndex = function () {
+
+		var frm = {
+			init_validate: function () {
+				init_validate({
+					form: "#frmMantenedor",
+					rules: {
+						sNombreUsuario: "required",
+						sApellido: "required",
+						sDireccion: "required",
+						sTelefono: "required",
+						sDni: "required",
+						sContraseña: "required",
+						dFechaNacimiento: "required"
+					}
+				});
+			}
+		};
+		var events = {
+			init: function () {
+				$("#btnGuardar").click(events.guardar);
+			},
+			guardar: function () {
+				var _btn = $(this);
+				if ($("#frmMantenedor").valid())
+				{
+					_btn.attr("disabled", "disabled");
+					blockUI("Guardando Datos...");
+
+					$.ajax({
+						type: 'post',
+						url: '@Url.Action("RegistrarUsuario")',
+						data: {
+							sNombreUsuario: $("#sNombreUsuario").val(),
+							sApellido: $("#sApellido").val(),
+							sDireccion: $("#sDireccion").val(),
+							sTelefono: $("#sTelefono").val(),
+							sDni: $("#sDni").val(),
+							sContraseña: $("#sContraseña").val(),
+							dFechaNacimiento: $("#dFechaNacimiento").val()
+						}
+					});
+
+				}
+
+			}
+		};
+		var init = function () {
+			events.init();
+			frm.init_validate();
+		};
+		return {
+			init: init,
+			//cargar_tabla: events.cargar_tabla,
+			//editar: events.editar,
+			//eliminar: events.eliminar
+		};
+
+
+	}();
+	$(function () {
+		frmIndex.init();
+		//fnIndex.cargar_tabla();
+	});*@
+
+@*</script>*@
+
+

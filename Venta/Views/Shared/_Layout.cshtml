@@ -1,43 +1,105 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sistema Electronico de Ventas</title>
+	@*<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">*@
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+	@*<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">*@
+	@*@Styles.Url("~/Content/materialize/fonts/roboto/Roboto-Bold.ttf")*@
+	<!-- Notificaciones -->
+	@Styles.Render("~/Scripts/MountainNotifications/css/mountainnotifications.css")
+	@Styles.Render("~/Scripts/SweetAlert/sweetalert2.min.css")
+	@Styles.Render("~/Content/materialize/css/materialize.css")
+	@Styles.Render("~/Content/bootstrap.css")
+	
+
+
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
-    </div>
+	@Html.Partial("Partial/_Header")
+	@if (Session["NombreUsuario"] != null)
+	{
+		<div id="menuNavbar2">
+			<div id="main">
+				<div class="wrapper">
+					<aside id="left-sidebar-nav">
+						<ul id="slide-out" class="side-nav fixed leftside-navigation">
+							<li class="user-details cyan darken-2">
+								<div class="row">
+									<div class="col col s5 m4 l6" align="right">
+										<img src="~/Imagenes/Usuario.png" id="operario" class="circle responsive-img valign profile-image" alt="" />
+									</div>
+									<div class="col col s8 m8 l8" style="text-align:right">
+										<p class="white-text" id="name2">@Session["TipoUsuario"]</p>
+									</div>
+								</div>
+							</li>
+							@Html.Partial("Partial/_Menu")
+						</ul>
+					</aside>
+				</div>
+			</div>
+		</div>
+	}
+	<div class="container body-content">
+		@RenderBody()
+		<hr />
+		<footer>
+			<p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+			@*@Html.Partial("Partial/_Menu")*@
+		</footer>
+	</div>
+	@*<environment include="Development">
+		<script type="text/javascript" src=""></script>
+		<script type="text/javascript" src=""></script>
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />*@
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+	@*</environment>*@
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/jquery-3.3.1.js")
+	@Scripts.Render("~/bundles/jquery-3.3.1.min.js")
+	@Scripts.Render("~/bundles/bootstrap")
+	@Scripts.Render("~/Scripts/js/Principal.js")
+	@Scripts.Render("~/Scripts/js/Site.js")
+	@Scripts.Render("~/Scripts/BlockUI/jquery.blockUI.js")
+	@Scripts.Render("~/Scripts/MountainNotifications/js/mountainnotifications.js")
+	@Scripts.Render("~/Scripts/SweetAlert/sweetalert2.all.min.js")
+	@Scripts.Render("~/Scripts/Default/notifications.js")
+	@Scripts.Render("~/Scripts/materialize/materialize.js")
+
+	@Scripts.Render("~/Scripts/Default/global.js")
+	@Scripts.Render("~/Scripts/Default/datatable.default.js")
+	@Scripts.Render("~/Scripts/Default/validate.default.js")
+	@Scripts.Render("~/Scripts/jquery.validate.js")
+	@*@Scripts.Render("~/Scrips/jquery.validate.min.js")*@
+
+	@*@Scripts.Render("~/bundles/modernizr")*@
+	@Scripts.Render("~/Scripts/bootstrap-datepicker.js")
+	@Scripts.Render("~/Scripts/bootstrap-datepicker.min.js")
+
+	@*@Scripts.Render("~/Scripts/jquery-ui-1.12.1.min.js")*@
+
+	@RenderSection("scripts", required: false)
+
+	<!--  jquery script  -->
+	@Scripts.Render("http://code.jquery.com/jquery-3.2.1.min.js")
+	<!--  validation script  -->
+	@Scripts.Render("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js")
+
+	<!--  jsrender script  -->
+	@Scripts.Render("http://cdn.syncfusion.com/js/assets/external/jsrender.min.js")
+
+	<!-- Essential JS UI widget -->
+	@Scripts.Render("http://cdn.syncfusion.com/16.4.0.52/js/web/ej.web.all.min.js")
+
+	@Scripts.Render("http://malsup.github.io/jquery.blockUI.js")
+	<!--Add custom scripts here -->
+
+
 </body>
 </html>
